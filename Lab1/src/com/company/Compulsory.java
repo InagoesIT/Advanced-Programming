@@ -1,10 +1,10 @@
 package com.company;
 
 public class Compulsory {
-    static String[] languages = {"C", "C++", "C#", "Python", "Go", "Rust", "JavaScript",
+    final private static String[] languages = {"C", "C++", "C#", "Python", "Go", "Rust", "JavaScript",
             "PHP", "Swift", "Java"};
 
-    public static int computeResFromN(int n) {
+    private static int computeResFromN(int n) {
         int result = n * 3;
         // 0b / 0B -> binary number (when added to n it is converted to int)
         result += 0B10101;
@@ -14,22 +14,14 @@ public class Compulsory {
         return result;
     }
 
-    public static int addDigits(int result) {
+    private static int addDigits(int result) {
+		// add the digits of res_aux in final_res,
+        // if res_aux is 0 and final_res has more than one digit sum the digits again
+        // otherwise, break
+
         int res_aux = result;
-        int new_res = 0;
+        int final_res = 0;
 
-        // adding the last digit to new_res and then deleting it from result
-        while (res_aux != 0) {
-            new_res += res_aux % 10;
-            res_aux /= 10;
-        }
-
-        /*if final_res > 9 then it has more than 1 digit
-         in while perform the operations from the 'while' above*/
-        int final_res = new_res;
-        res_aux = new_res;
-
-		// add the digits of res_aux in final_res
         while (res_aux != 0) {
             final_res += res_aux % 10;
             res_aux /= 10;
