@@ -1,0 +1,11 @@
+
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8šÄÎö/
+‹
+java:S13194"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ïÚ‡Õüÿÿÿÿ
+‹
+java:S1319K"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ıàÔ‹üÿÿÿÿ
+†
+java:S1319Q"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(æçéİ
+†
+java:S1319_"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ˆö¸ã

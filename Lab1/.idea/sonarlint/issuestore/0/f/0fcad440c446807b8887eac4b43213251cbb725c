@@ -1,0 +1,15 @@
+
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(¥’Á÷øÿÿÿÿ
+N	java:S106E"9Replace this use of System.out or System.err by a logger.(îÏžè
+S	java:S106F"9Replace this use of System.out or System.err by a logger.(ŽþþÔúÿÿÿÿ
+N	java:S106J"9Replace this use of System.out or System.err by a logger.(ÐÒÒò
+M	java:S106U"9Replace this use of System.out or System.err by a logger.(Â³Š6
+X	java:S125_"<This block of commented-out lines of code should be removed.(Ú°à¬8À‚ïÝó/
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Â‚ïÝó/
+@
+java:S54113"*Use the primitive boolean expression here.(óœ¸Ê
+E
+java:S54117"*Use the primitive boolean expression here.(ý¾ŒÖÿÿÿÿÿ
+G
+java:S5411I"*Use the primitive boolean expression here.(ÊäÄ8ÌÅãÝó/

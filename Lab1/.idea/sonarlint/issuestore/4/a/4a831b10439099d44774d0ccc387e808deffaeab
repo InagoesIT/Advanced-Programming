@@ -1,0 +1,14 @@
+
+h
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 28 to the 15 allowed.(ÛÛ¯ø
+Q	java:S125"<This block of commented-out lines of code should be removed.(—óìé
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ðˆ”³ùÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(Ô•áî
+N	java:S106 "9Replace this use of System.out or System.err by a logger.(Ìþ¼Î
+N	java:S106$"9Replace this use of System.out or System.err by a logger.(Ô•áî
+N	java:S106&"9Replace this use of System.out or System.err by a logger.(Ìþ¼Î
+S	java:S1060"9Replace this use of System.out or System.err by a logger.(¦ç×Ãûÿÿÿÿ
+U	java:S106C"9Replace this use of System.out or System.err by a logger.(‘»ÂÁ8ûÙ·‰ô/
+X	java:S125G"<This block of commented-out lines of code should be removed.(©ðôÚ8Ä’Òˆô/
+v
+java:S1128"TRemove this unnecessary import: same package classes are always implicitly imported.(‡Ä×åøÿÿÿÿ8ÌéÃˆô/

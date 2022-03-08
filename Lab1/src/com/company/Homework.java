@@ -46,7 +46,7 @@ public class Homework
 			}
 			words[i] = word.toString();
 		}
-		
+
 		System.out.println("The generated words are: " + Arrays.toString(words));
 	}
 

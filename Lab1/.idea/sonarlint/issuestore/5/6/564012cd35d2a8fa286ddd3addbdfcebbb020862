@@ -1,0 +1,9 @@
+
+?
+java:S2140+")Use "java.util.Random.nextInt()" instead.(ÙÄœÚ
+M	java:S1062"9Replace this use of System.out or System.err by a logger.(ÌàõM
+m
+java:S37765"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(êœ´‚üÿÿÿÿ
+N	java:S106V"9Replace this use of System.out or System.err by a logger.(Î•ÞÃ
+S	java:S106W"9Replace this use of System.out or System.err by a logger.(ŠßÎŠøÿÿÿÿ
+N	java:S106Y"9Replace this use of System.out or System.err by a logger.(ÉŽ˜Œ
