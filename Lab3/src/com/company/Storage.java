@@ -2,5 +2,6 @@ package com.company;
 
 public interface Storage
 {
-	int getStorageCapacity();
+	long getStorageCapacity();
+	long getStorageCapacity(String unit);
 }
