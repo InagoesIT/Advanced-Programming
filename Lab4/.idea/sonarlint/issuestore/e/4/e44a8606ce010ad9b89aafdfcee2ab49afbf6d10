@@ -1,4 +1,9 @@
 
-N	java:S106>"9Replace this use of System.out or System.err by a logger.(Ìº‡Ï
-N	java:S106@"9Replace this use of System.out or System.err by a logger.(Ì«Ö±
-V	java:S107C"<Method has 9 parameters, which is greater than 7 authorized.(ßˆÀ™˙ˇˇˇˇ
+N	java:S106C"9Replace this use of System.out or System.err by a logger.(Ìº‡Ï
+N	java:S106E"9Replace this use of System.out or System.err by a logger.(Ì«Ö±
+S	java:S106T"9Replace this use of System.out or System.err by a logger.(™”º·˛ˇˇˇˇ
+S	java:S106U"9Replace this use of System.out or System.err by a logger.(®Åõ’˚ˇˇˇˇ
+S	java:S106W"9Replace this use of System.out or System.err by a logger.(Å≤‰ç˛ˇˇˇˇ
+S	java:S106f"9Replace this use of System.out or System.err by a logger.(´”Ùˇˇˇˇˇˇ
+Z	java:S106g"9Replace this use of System.out or System.err by a logger.(œò˜∆˙ˇˇˇˇ8«’•ù˙/
+V	java:S107j"<Method has 9 parameters, which is greater than 7 authorized.(ßˆÀ™˙ˇˇˇˇ

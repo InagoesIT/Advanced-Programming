@@ -1,3 +1,8 @@
+import com.github.javafaker.Faker;
+import org.jgrapht.*;
+import org.jgrapht.alg.spanning.KruskalMinimumSpanningTree;
+import org.jgrapht.graph.*;
+
 import java.util.*;
 
 public class Main
@@ -31,22 +36,22 @@ public class Main
 		List<Intersection> intersections = intersectionNames.stream().map(Intersection::new).toList();
 
 		// setting the intersections for every street
-		street1.setIntersections(new Intersection[]{intersections.get(0), intersections.get(1)});
-		street2.setIntersections(new Intersection[]{intersections.get(0), intersections.get(3)});
-		street3.setIntersections(new Intersection[]{intersections.get(0), intersections.get(2)});
-		street4.setIntersections(new Intersection[]{intersections.get(1), intersections.get(3)});
-		street5.setIntersections(new Intersection[]{intersections.get(2), intersections.get(3)});
-		street6.setIntersections(new Intersection[]{intersections.get(1), intersections.get(5)});
-		street7.setIntersections(new Intersection[]{intersections.get(2), intersections.get(4)});
-		street8.setIntersections(new Intersection[]{intersections.get(3), intersections.get(4)});
-		street9.setIntersections(new Intersection[]{intersections.get(3), intersections.get(7)});
-		street10.setIntersections(new Intersection[]{intersections.get(5), intersections.get(4)});
-		street11.setIntersections(new Intersection[]{intersections.get(4), intersections.get(8)});
-		street12.setIntersections(new Intersection[]{intersections.get(7), intersections.get(8)});
-		street13.setIntersections(new Intersection[]{intersections.get(7), intersections.get(6)});
-		street14.setIntersections(new Intersection[]{intersections.get(6), intersections.get(8)});
-		street15.setIntersections(new Intersection[]{intersections.get(5), intersections.get(6)});
-		street16.setIntersections(new Intersection[]{intersections.get(5), intersections.get(8)});
+		street1.setIntersections(new Intersection[]{intersections.get(0), intersections.get(1)});//1
+		street2.setIntersections(new Intersection[]{intersections.get(0), intersections.get(3)});//2
+		street3.setIntersections(new Intersection[]{intersections.get(0), intersections.get(2)});//3
+		street4.setIntersections(new Intersection[]{intersections.get(1), intersections.get(3)});//4
+		street5.setIntersections(new Intersection[]{intersections.get(2), intersections.get(3)});//5
+		street6.setIntersections(new Intersection[]{intersections.get(1), intersections.get(5)});//6
+		street7.setIntersections(new Intersection[]{intersections.get(2), intersections.get(4)});//7
+		street8.setIntersections(new Intersection[]{intersections.get(3), intersections.get(4)});//8
+		street9.setIntersections(new Intersection[]{intersections.get(3), intersections.get(7)});//9
+		street10.setIntersections(new Intersection[]{intersections.get(5), intersections.get(4)});//10
+		street11.setIntersections(new Intersection[]{intersections.get(4), intersections.get(8)});//11
+		street12.setIntersections(new Intersection[]{intersections.get(7), intersections.get(8)});//12
+		street13.setIntersections(new Intersection[]{intersections.get(7), intersections.get(6)});//13
+		street14.setIntersections(new Intersection[]{intersections.get(6), intersections.get(8)});//14
+		street15.setIntersections(new Intersection[]{intersections.get(5), intersections.get(6)});//15
+		street16.setIntersections(new Intersection[]{intersections.get(5), intersections.get(8)});//16
 
 		// creating a Linked List with some Streets
 		List<Street> streetsLL = new LinkedList<>();
@@ -62,6 +67,40 @@ public class Main
 			System.out.println("SENSATION! THE SET ACCEPTS DUPLICATES!");
 		else
 			System.out.println("The set already has this element, so it didn't add it, it doesn't have duplicates.");
+
+
+		// HOMEWORK
+		City city = new City(intersections);
+		city.addStreetsToIntersection(intersections.get(0), new ArrayList<>(List.of(street1, street2, street3)));
+		city.addStreetsToIntersection(intersections.get(1), new ArrayList<>(List.of(street1, street4, street6)));
+		city.addStreetsToIntersection(intersections.get(2), new ArrayList<>(List.of(street3, street5, street7)));
+		city.addStreetsToIntersection(intersections.get(3), new ArrayList<>(List.of(street2, street4, street5, street8, street9)));
+		city.addStreetsToIntersection(intersections.get(4), new ArrayList<>(List.of(street7, street8, street10, street11)));
+		city.addStreetsToIntersection(intersections.get(5), new ArrayList<>(List.of(street6, street10, street15, street16)));
+		city.addStreetsToIntersection(intersections.get(6), new ArrayList<>(List.of(street13, street14, street15)));
+		city.addStreetsToIntersection(intersections.get(7), new ArrayList<>(List.of(street9, street12, street13)));
+		city.addStreetsToIntersection(intersections.get(8), new ArrayList<>(List.of(street11, street12, street14, street16)));
+
+		System.out.println();
+		System.out.println("---------------------------HOMEWORK---------------------------");
+		int length = 2;
+		System.out.println("The streets that connect at least 3 streets " +
+				"and have a length bigger than " + length + ": "
+				+ city.getStreetsLongerThan(length));
+
+		Faker faker = new Faker();
+
+		streetsLL.forEach(street -> street.setName(faker.address().streetName()));
+		intersections.forEach(intersection -> intersection.setName(faker.address().streetName()));
+
+		// creating a graph with Intersections as vertexes and Streets as edges
+		Graph<Intersection, Street> graph = new SimpleWeightedGraph<>(Street.class);
+		intersections.forEach(graph::addVertex);
+		streetsLL.forEach(street -> graph.addEdge(street.getIntersection1(), street.getIntersection2(), street));
+
+		KruskalMinimumSpanningTree<Intersection, Street> kruskalTree = new KruskalMinimumSpanningTree<>(graph);
+		System.out.println("The edges of the minimum spanning tree are: " + kruskalTree.getSpanningTree().getEdges());
+		System.out.println("Its weight: " + kruskalTree.getSpanningTree().getWeight());
 	}
 
 	private static void addStreets(Street street1, Street street2, Street street3, Street street4, Street street5, Street street6, Street street7, Street street8, List<Street> streetsLL)

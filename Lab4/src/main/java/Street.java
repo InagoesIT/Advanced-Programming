@@ -32,12 +32,12 @@ public class Street implements Comparable<Street>
 
 	public Intersection getIntersection1()
 	{
-		return new Intersection(intersections[0]);
+		return intersections[0];
 	}
 
 	public Intersection getIntersection2()
 	{
-		return new Intersection(intersections[1]);
+		return intersections[1];
 	}
 
 	public String getName()

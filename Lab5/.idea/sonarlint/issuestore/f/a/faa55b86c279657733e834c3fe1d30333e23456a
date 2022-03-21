@@ -1,0 +1,9 @@
+
+m
+java:S1206["PThis class overrides "equals()" and should therefore also override "hashCode()".(öµ£Ç8ù½ÆÁú/
+[
+java:S5993"9Change the visibility of this constructor to "protected".(µ¥Ø’øÿÿÿÿ8˜ë¤Äú/
+C
+java:S1948"&Make "tags" transient or serializable.(á“«š8ğôÌÁú/
+G
+java:S1172P"*Remove this unused method parameter "obj".(åøÆ8öôÌÁú/
