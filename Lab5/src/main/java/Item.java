@@ -103,4 +103,15 @@ public abstract class Item implements Serializable
 	{
 		return tags;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Item{" +
+				"id='" + id + '\'' +
+				", title='" + title + '\'' +
+				", location='" + location + '\'' +
+				", tags=" + tags +
+				'}';
+	}
 }

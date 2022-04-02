@@ -1,0 +1,39 @@
+{
+  "name" : "My refs",
+  "items" : [ {
+    "type" : "Article",
+    "id" : "java17",
+    "title" : "The Java Language Specification",
+    "location" : "https://docs.oracle.com/javase/specs/jls/se17/html/index.html",
+    "tags" : { },
+    "likesNr" : 20
+  }, {
+    "type" : "Article",
+    "id" : "python1",
+    "title" : "Implementing logistic regression from scratch in Python",
+    "location" : "https://developer.ibm.com/articles/implementing-logistic-regression-from-scratch-in-python/",
+    "tags" : { },
+    "likesNr" : 2000
+  }, {
+    "type" : "Book",
+    "id" : "knuth67",
+    "title" : "The Art of Computer Programming",
+    "location" : "d:/books/programming/tacp.ps",
+    "tags" : { },
+    "genre" : "IT"
+  }, {
+    "type" : "Book",
+    "id" : "freud1",
+    "title" : "The Interpretation of Dreams",
+    "location" : "/mnt/others/freud.pdf",
+    "tags" : { },
+    "genre" : "psychology"
+  }, {
+    "type" : "Article",
+    "id" : "java6",
+    "title" : "The Java",
+    "location" : "https://docs.oracle.com/javase/specs/jls/se17/html/index.html",
+    "tags" : { },
+    "likesNr" : 209
+  } ]
+}
