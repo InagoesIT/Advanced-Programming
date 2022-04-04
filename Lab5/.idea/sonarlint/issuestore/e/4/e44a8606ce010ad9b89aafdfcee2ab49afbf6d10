@@ -1,0 +1,18 @@
+
+W
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(Ì÷£°
+\
+java:S1075"ARefactor your code to get this URI from a customizable parameter.(º‘ìÁûÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÃÜ± 
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ÚÖÂ
+S	java:S106("9Replace this use of System.out or System.err by a logger.(Ú§ÈÖúÿÿÿÿ
+N	java:S106,"9Replace this use of System.out or System.err by a logger.(ê¹Â
+Z	java:S1065"9Replace this use of System.out or System.err by a logger.(Áü‰ûÿÿÿÿ8íÇ¾Ìş/
+Z	java:S106:"9Replace this use of System.out or System.err by a logger.(Ğ¢â¯şÿÿÿÿ8íÇ¾Ìş/
+U	java:S106L"9Replace this use of System.out or System.err by a logger.(ş¸ÃÃ8òÇ¾Ìş/
+Z	java:S106M"9Replace this use of System.out or System.err by a logger.(¨š¹¾úÿÿÿÿ8óÇ¾Ìş/
+m
+java:S2737t"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(ÏÂæŸ
+Q	java:S125a"<This block of commented-out lines of code should be removed.(Ú°à¬
+U	java:S106o"9Replace this use of System.out or System.err by a logger.(Ù…â¥8øÇ¾Ìş/
+T	java:S106p"9Replace this use of System.out or System.err by a logger.(‡ë…i8øÇ¾Ìş/

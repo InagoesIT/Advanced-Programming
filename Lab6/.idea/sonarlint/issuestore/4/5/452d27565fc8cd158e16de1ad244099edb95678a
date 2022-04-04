@@ -1,0 +1,17 @@
+
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ê¤Ôí
+S
+java:S1128"6Remove this unused import 'javafx.event.EventHandler'.(º»û˜8Ð×¼ýþ/
+O
+java:S1128"-Remove this unused import 'javafx.fxml.FXML'.(ÃÚ¢„þÿÿÿÿ8Ð×¼ýþ/
+Z
+java:S1128"8Remove this unused import 'javafx.scene.control.Button'.(Ë Í‹øÿÿÿÿ8Ð×¼ýþ/
+Y
+java:S1128	"7Remove this unused import 'javafx.scene.control.Label'.(ö²­žÿÿÿÿÿ8Ð×¼ýþ/
+\
+java:S1128":Remove this unused import 'javafx.scene.input.MouseEvent'.(˜¬‹æÿÿÿÿÿ8Ð×¼ýþ/
+V
+java:S1128"9Remove this unused import 'javafx.scene.layout.TilePane'.(‹ÿ¸‡8Ð×¼ýþ/
+Q
+java:S1128"/Remove this unused import 'javafx.stage.Popup'.(›Ü…Èÿÿÿÿÿ8Ñ×¼ýþ/
