@@ -1,10 +1,19 @@
 
-f
-java:S1206^"PThis class overrides "equals()" and should therefore also override "hashCode()".(öµ£Ç
-]	java:S125"<This block of commented-out lines of code should be removed.(«Ž¦þÿÿÿÿ8Ê½“ÿ/
-]	java:S125"<This block of commented-out lines of code should be removed.(èéÙÝùÿÿÿÿ8¬•†žÿ/
+g
+java:S1206•"PThis class overrides "equals()" and should therefore also override "hashCode()".(öµ£Ç
 y
-java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ôÌÞ›ûÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ÿ²°Ëøÿÿÿÿ
-Z	java:S106 "9Replace this use of System.out or System.err by a logger.(ÿ¬¾Çøÿÿÿÿ8ÓÇôœÿ/
-]	java:S125+"<This block of commented-out lines of code should be removed.(›˜Úþøÿÿÿÿ8”ûøœÿ/
+java:S21427"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ôÌÞ›ûÿÿÿÿ
+K
+java:S24460"0"notify" may not wake up the appropriate thread.(ŠÚ«Òüÿÿÿÿ
+S	java:S1065"9Replace this use of System.out or System.err by a logger.(³îøÍúÿÿÿÿ
+S	java:S1069"9Replace this use of System.out or System.err by a logger.(ÿ²°Ëøÿÿÿÿ
+S	java:S106@"9Replace this use of System.out or System.err by a logger.(ÿ¬¾Çøÿÿÿÿ
+’
+java:S1130D"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(»Ž…·üÿÿÿÿ
+3
+java:S2119J"Save and re-use this "Random".(¼ÝÅf
+N	java:S106U"9Replace this use of System.out or System.err by a logger.(§§‡†
+V	java:S125R"<This block of commented-out lines of code should be removed.(ºŠƒûÿÿÿÿ
+V	java:S125X"<This block of commented-out lines of code should be removed.(û»„Íÿÿÿÿÿ
+D
+java:S5413p")Verify that "remove()" is used correctly.(û€ØÜúÿÿÿÿ

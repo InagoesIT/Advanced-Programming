@@ -7,7 +7,6 @@ public class Game
 	private static final String BOLD_OFF = "\033[0;0m";
 	private final Bag bag = new Bag();
 	private final Board board = new Board();
-	//private final Dictionary dictionary = new MockDictionary();
 	private final List<Player> players = new ArrayList<>();
 
 	public static void main(String[] args)
@@ -16,6 +15,7 @@ public class Game
 		game.addPlayer(new Player("Player 1"));
 		game.addPlayer(new Player("Player 2"));
 		game.addPlayer(new Player("Player 3"));
+
 		try
 		{
 			game.play();
@@ -36,11 +36,6 @@ public class Game
 		return board;
 	}
 
-//	public Dictionary getDictionary()
-//	{
-//		return dictionary;
-//	}
-
 	public void addPlayer(Player player)
 	{
 		players.add(player);
@@ -49,15 +44,37 @@ public class Game
 
 	public void play() throws InterruptedException
 	{
+		for (int i = 0; i < players.size() - 1; i++)
+			players.get(i).setNextPlayer(players.get(i + 1));
+		players.get(players.size() - 1).setNextPlayer(players.get(0));
+
 		// memorise every thread created
-		ArrayList<Thread> threads = new ArrayList<>();
+		List<Thread> threads = new ArrayList<>();
 		for (Player player : players)
 			threads.add(new Thread(player));
+
+		TimeKeeper timeKeeper = new TimeKeeper(players);
+		Thread timeKeeperThread = new Thread(timeKeeper);
+		timeKeeperThread.start();
+
 		for (Thread thread : threads)
 			thread.start();
-		// wait for everyone to finish
+
+		// notify first player
+		synchronized (players.get(0))
+		{
+			players.get(0).notify();
+		}
+
 		for (Thread thread : threads)
 			thread.join();
+		timeKeeper.setRunning(false);
+
+		if (board.getWinner() == null)
+			System.out.println("There are no winners because no one submitted words to the board.");
+		else
+			System.out.println(board.getWinner().getName() + " won.");
+
 		System.out.println(BOLD_ON + "The words created by the players are: " + BOLD_OFF + board);
 	}
 }

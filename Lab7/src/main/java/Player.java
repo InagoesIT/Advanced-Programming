@@ -5,12 +5,24 @@ public class Player implements Runnable
 	private String name;
 	private Game game;
 	private boolean running;
-	//private final Random random;
+	private Player nextPlayer;
+	private List<Tile> permutatedWord;
+	private List<List<Tile>> permutations;
+	private List<Tile> extracted;
 
 	public Player(String name)
 	{
 		this.name = name;
-		//random = new Random();
+		nextPlayer = null;
+		running = true;
+		permutatedWord = new ArrayList<>();
+		permutations = new ArrayList<>();
+		extracted = new ArrayList<>();
+	}
+
+	public void setNextPlayer(Player nextPlayer)
+	{
+		this.nextPlayer = nextPlayer;
 	}
 
 	@Override
@@ -18,46 +30,89 @@ public class Player implements Runnable
 	{
 		int howMany = 7;
 
-		while (howMany != 0)
+		synchronized (this)
 		{
-			try
+			while (isRunning())
 			{
-				howMany = submitWord(howMany);
-			} catch (InterruptedException exception)
-			{
-				System.out.println(this.getName() + " has left the game :'( ...");
-				exception.printStackTrace();
+				try
+				{
+					wait();
+					howMany = submitWord(howMany);
+					if (howMany == -1) // couldn't find a word
+					{
+						howMany = 7;
+						extracted = new ArrayList<>();
+					}
+					synchronized (nextPlayer)
+					{
+						nextPlayer.notify();
+					}
+					if (howMany == 0)
+						break;
+					if (!isRunning())
+						System.out.println(this.name + " THE TIMEKEEPER KILLED ME");
+
+				} catch (InterruptedException exception)
+				{
+					System.out.println(this.getName() + " has left the game :'( ...");
+					exception.printStackTrace();
+				}
 			}
 		}
+
+		running = false;
 		System.out.println("FROM:" + this.getName() + " -> The game has ended."
-				+"\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+				+ "\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 	}
 
 	private int submitWord(int howMany) throws InterruptedException
 	{
-		List<Tile> extracted = game.getBag().extractTiles(howMany);
+		extracted.addAll(game.getBag().extractTiles(howMany));
 		if (extracted.isEmpty())
 			return 0;
 
-		// choose a subset and permute it to generate a sequence of tiles
-//		int wordSize;
-//		if (extracted.size() <= 4)
-//			wordSize = extracted.size();
-//		else
-//			wordSize = random.nextInt(4, extracted.size());
+		Random random = new Random();
+		if (extracted.size() < 3)
+			return -1;
+
+		int start = random.nextInt(0, extracted.size()  - 2);
+
+		if (game.getBoard().addWord(this, extracted.subList(start, start + 2)))
+			return 2;
+//		if (game.getBoard().addWord(this, extracted))
+//			return extracted.size();
+
+		System.out.println(this.getName() + " didn't find any word... ");
+		return -1;
+
+//		permutations = new ArrayList<>();
+//		permutatedWord = new ArrayList<>();
+//		permutationFinder(extracted.subList(start, start+3));
 //
-//		Set<Tile> tiles = new HashSet<>();
-//		for (int i = 0; i < wordSize; i++)
+//		for (List<Tile> word : permutations)
 //		{
-//			tiles.add(extracted.get(i));
+//			if (game.getBoard().addWord(this, word))
+//				return 2;
 //		}
+	}
 
-		// be greedy and "create" a word with all the tiles
-		Set<Tile> tiles = new HashSet<>(extracted);
-		game.getBoard().addWord(this, tiles.stream().toList());
+	public void permutationFinder(List<Tile> tiles)
+	{
+		if (tiles.isEmpty())
+		{
+			permutations.add(permutatedWord);
+			permutatedWord = new ArrayList<>();
+			return;
+		}
 
-		Thread.sleep(50);
-		return tiles.size();
+		for (int i = 0; i < tiles.size(); i++)
+		{
+			Tile tile = tiles.get(i);
+			List<Tile> newTiles = new ArrayList<>(tiles);
+			newTiles.remove(i);
+			permutatedWord.add(tile);
+			permutationFinder(newTiles);
+		}
 	}
 
 	public String getName()
@@ -95,7 +150,7 @@ public class Player implements Runnable
 	{
 		if (object == null)
 			return false;
-		if(object.getClass() != this.getClass())
+		if (object.getClass() != this.getClass())
 			return false;
 
 		return ((Player) object).getName().equals(this.getName());
