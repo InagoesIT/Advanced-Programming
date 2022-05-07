@@ -4,8 +4,6 @@ J
 M
 src/main/java/AddCommand.java,9/3/934194826f176100a0aaf7ab39e03bbb80040308
 N
-src/main/java/ViewCommand.java,1/f/1fd75b658b18ed10537d89d8aa7e05838aa2c6e4
-N
 src/main/java/ListCommand.java,3/c/3c628264a865890dc294e8c92e73d5ebd88f97d7
 \
 ,src/main/java/FileNotSupportedException.java,0/6/069ac1f31b07d182b8732bfc047c30c48b74d431
@@ -29,3 +27,5 @@ P
  src/main/java/ReportCommand.java,6/2/629e6b397eac75de5f9bb2dae23d7dbbd6c9dbd6
 N
 src/main/java/CatalogUtil.java,7/f/7fa6fcdaa92b39fbee92a7f96346abc1ba6449a2
+N
+src/main/java/ViewCommand.java,1/f/1fd75b658b18ed10537d89d8aa7e05838aa2c6e4
