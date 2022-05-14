@@ -7,13 +7,55 @@ import entities.Country;
 import javax.persistence.EntityManager;
 import java.util.List;
 
-public class CountryRepository
+public class CountryRepository extends DataRepository<Country>
 {
-	private final EntityManager entityManager;
-
 	public CountryRepository(EntityManager entityManager)
 	{
-		this.entityManager = entityManager;
+		super(entityManager);
+	}
+
+	@Override
+	public Country findById(Integer id)
+	{
+		try
+		{
+			return (Country) entityManager.createNamedQuery("Country.findById")
+					.setParameter("1", id)
+					.getResultList().get(0);
+		}
+		catch (ArrayIndexOutOfBoundsException exception)
+		{
+			return null;
+		}
+	}
+
+	@Override
+	public Country findByName(String name)
+	{
+		try
+		{
+			return (Country) entityManager.createNamedQuery("Country.findByName")
+					.setParameter("1", name)
+					.getResultList().get(0);
+		}
+		catch (ArrayIndexOutOfBoundsException exception)
+		{
+			return null;
+		}
+	}
+
+	@Override
+	public List<Country> findAll()
+	{
+		return entityManager.createNamedQuery("Country.findAll")
+				.getResultList();
+	}
+
+	@Override
+	public long count()
+	{
+		return entityManager.createNamedQuery("Country.findAll")
+				.getResultList().size();
 	}
 
 	public List<Country> findByContinent(Continent continent)
@@ -23,17 +65,17 @@ public class CountryRepository
 				.getResultList();
 	}
 
-	public Country findById(int id)
+	public Country findByCode(String code)
 	{
-		return (Country) entityManager.createQuery(
-						"select country from City country where country.id=?1")
-				.setParameter(1, id).getSingleResult();
-	}
-
-	public Country findByName(String name)
-	{
-		return (Country) entityManager.createNamedQuery("Country.findByName")
-				.setParameter("1", name)
-				.getResultList();
+		try
+		{
+			return (Country) entityManager.createNamedQuery("Country.findByCode")
+					.setParameter("1", code)
+					.getResultList().get(0);
+		}
+		catch (ArrayIndexOutOfBoundsException exception)
+		{
+			return null;
+		}
 	}
 }

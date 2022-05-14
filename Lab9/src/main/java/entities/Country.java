@@ -12,47 +12,40 @@ import java.io.Serializable;
 				query = "select country from Country country where country.continent=?1"),
 		@NamedQuery(name = "Country.findByName",
 				query = "select country from Country country where country.name=?1"),
+		@NamedQuery(name = "Country.findById",
+				query = "select country from Country country where country.id=?1"),
+		@NamedQuery(name = "Country.findByCode",
+				query = "select country from Country country where country.code=?1"),
 })
 
-public class Country implements Serializable
+public class Country extends AbstractEntity implements Serializable
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "id")
-	@Column(name = "id")
-	protected int id;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "continent")
+	private Continent continent;
 
-	@Column(name = "name")
-	protected String name;
-
-	@Column(name = "code")
 	private String code;
 
-	@Column(name = "continent")
-	private int continent;
+	public Country() {super();}
 
-	public Country(){
-	}
-
-	public Country(int id, String name, String code, int continent)
+	public Country(Integer id, String name, String code, Continent continent)
 	{
-		this.id = id;
-		if (name.equals("N/A") || name.equals("NULL") || name.equals(""))
-			name = null;
+		super(id, name);
 		this.name = name;
+		if (code.equals("NULL"))
+			code = null;
 		this.code = code;
 		this.continent = continent;
 	}
 
-	public void setId(int id)
+	public Continent getContinent()
 	{
-		this.id = id;
+		return continent;
 	}
 
-	public void setName(String name)
+	public void setContinent(Continent continent)
 	{
-		if (name.equals("N/A") || name.equals("NULL") || name.equals(""))
-			name = null;
-		this.name = name;
+		this.continent = continent;
 	}
 
 	public void setCode(String code)
@@ -60,29 +53,9 @@ public class Country implements Serializable
 		this.code = code;
 	}
 
-	public void setContinent(int continent)
-	{
-		this.continent = continent;
-	}
-
-	public int getId()
-	{
-		return id;
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-
 	public String getCode()
 	{
 		return code;
-	}
-
-	public int getContinent()
-	{
-		return continent;
 	}
 
 	@Override

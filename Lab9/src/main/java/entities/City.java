@@ -1,5 +1,7 @@
 package entities;
 
+import org.chocosolver.solver.variables.Variable;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -10,56 +12,35 @@ import java.io.Serializable;
 				query = "select city from City city order by city.name"),
 		@NamedQuery(name = "City.findByCountry",
 				query = "select city from City city where city.country=?1"),
+		@NamedQuery(name = "City.findById",
+				query = "select city from City city where city.id=?1"),
 		@NamedQuery(name = "City.findByName",
 				query = "select city from City city where city.name=?1"),
 })
 
-public class City implements Serializable
+public class City extends AbstractEntity implements Serializable
 {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "id")
-	@Column(name = "id")
-	protected int id;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "country")
+	private Country country;
 
-	@Column(name = "name")
-	protected String name;
-
-	@Column(name = "country")
-	private int country;
-
-	@Column(name = "capital")
 	private boolean capital;
-
-	@Column(name = "latitude")
 	private float latitude;
-
-	@Column(name = "longitude")
 	private float longitude;
+	private int population;
 
-	public City() {}
+	public City() {
+		super();
+	}
 
-	public City(int id, String name, int country, boolean capital, float latitude, float longitude)
+	public City(Integer id, String name, Country country, boolean capital, float latitude, float longitude)
 	{
-		this.id = id;
-		if (name.equals("N/A") || name.equals("NULL") || name.equals(""))
-			name = null;
+		super(id, name);
 		this.name = name;
 		this.country = country;
 		this.capital = capital;
 		this.latitude = latitude;
 		this.longitude = longitude;
-	}
-
-	public void setName(String name)
-	{
-		if (name.equals("N/A") || name.equals("NULL") || name.equals(""))
-			name = null;
-		this.name = name;
-	}
-
-	public void setCountry(int country)
-	{
-		this.country = country;
 	}
 
 	public void setCapital(boolean capital)
@@ -77,25 +58,6 @@ public class City implements Serializable
 		this.longitude = longitude;
 	}
 
-	public void setId(int id)
-	{
-		this.id = id;
-	}
-
-	public int getId()
-	{
-		return id;
-	}
-
-	public String getName()
-	{
-		return name;
-	}
-	public int getCountry()
-	{
-		return country;
-	}
-
 	public boolean isCapital()
 	{
 		return capital;
@@ -109,6 +71,26 @@ public class City implements Serializable
 	public float getLongitude()
 	{
 		return longitude;
+	}
+
+	public Country getCountry()
+	{
+		return country;
+	}
+
+	public void setCountry(Country country)
+	{
+		this.country = country;
+	}
+
+	public void setPopulation(int population)
+	{
+		this.population = population;
+	}
+
+	public int getPopulation()
+	{
+		return population;
 	}
 
 	@Override

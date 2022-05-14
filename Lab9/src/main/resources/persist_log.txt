@@ -1,0 +1,8 @@
+May 09, 2022 4:50:55 PM utils.DataImporter logExecutionTime
+INFO: The time needed for adding the cities was: 394 milliseconds.
+May 09, 2022 4:51:09 PM utils.DataImporter logExecutionTime
+INFO: The time needed for adding the cities was: 0 milliseconds.
+May 09, 2022 4:51:17 PM utils.DataImporter logExecutionTime
+INFO: The time needed for adding the cities was: 334 milliseconds.
+May 10, 2022 5:13:03 PM utils.DataImporter logExecutionTime
+INFO: The time needed for adding the cities was: 291 milliseconds.

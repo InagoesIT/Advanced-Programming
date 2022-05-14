@@ -1,3 +1,7 @@
+drop table cities;
+drop table countries;
+drop table continents;
+
 CREATE TABLE countries
 (
     id        int primary key AUTO_INCREMENT,
@@ -20,6 +24,7 @@ CREATE TABLE cities
     capital   BOOLEAN,
     latitude  DECIMAL(11, 8),
     longitude DECIMAL(11, 8),
+    population int,
     UNIQUE (name, country)
 );
 

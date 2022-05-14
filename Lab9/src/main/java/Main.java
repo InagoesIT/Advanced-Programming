@@ -1,5 +1,8 @@
 import entities.Continent;
 import org.eclipse.persistence.exceptions.DatabaseException;
+import utils.ChocoSolverDemo;
+import utils.DataImporter;
+import utils.EntityManagerFactorySingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -11,6 +14,14 @@ public class Main
 	private static final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
 	public static void main(String[] args)
+	{
+//		DataImporter dataImporter = new DataImporter(entityManager);
+//		dataImporter.importCSV("/mnt/uni/courses/PA/lab/PA_2022_2B4_VIVDICI_INA/Lab9/src/main/resources/world_capitals.csv");
+		ChocoSolverDemo chocoSolverDemo = new ChocoSolverDemo(entityManager, 10, 15);
+		System.out.println(chocoSolverDemo.getResult());
+	}
+
+	private static void compulsoryTest()
 	{
 		entityManager.getTransaction().begin();
 		Continent continentRes;
