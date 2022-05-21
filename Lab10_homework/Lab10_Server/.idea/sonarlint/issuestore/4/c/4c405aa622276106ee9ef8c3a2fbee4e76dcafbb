@@ -1,0 +1,11 @@
+
+I
+java:S1128",Remove this unused import 'java.net.Socket'.(­‡àú8ë­¶ğŒ0
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8„ŸÌğŒ0
+M
+java:S1128	"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8…ŸÌğŒ0
+n
+java:S1104"SMake running a static final constant or non-public and provide accessors if needed.(Ìë¦¨ûÿÿÿÿ
+H
+java:S1444"-Make this "public static running" field final(Ìë¦¨ûÿÿÿÿ

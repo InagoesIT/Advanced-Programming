@@ -11,3 +11,17 @@ U
 %src/main/java/utils/DataImporter.java,e/6/e6855828746610c7cd81c57a5c8566986469f827
 Z
 *src/main/java/entities/AbstractEntity.java,8/2/8236c5372d52074df2d6ee91ac8c85c82f4c6778
+P
+ src/main/java/entities/City.java,a/f/afeb8437065db3dee82ca2e13d7f3c2dff5092b2
+U
+%src/main/java/entities/Continent.java,1/5/150c1ad512cd811159c5f403272624c3dc564ab8
+S
+#src/main/java/entities/Country.java,b/6/b6f427abb2410e1765841daf3c215c6efb3baf0e
+^
+.src/main/java/repositories/DataRepository.java,f/7/f780f9b19ebf5226434a078ad264b9c0b5588754
+X
+(src/main/java/utils/ChocoSolverDemo.java,f/9/f987969065e3b425936809d8150ea7b019538937
+^
+.src/main/java/repositories/CityRepository.java,a/f/af1684e91349dc8e6932b3ba384d0d23d7daca25
+G
+src/main/java/Main.java,e/4/e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
