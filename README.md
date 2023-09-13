@@ -1,5 +1,6 @@
-All the code written at Advanced Programming during my 4th semester of university.
+All the code written at Advanced Programming in Java during my 4th semester of university.
 
+Notes for the teachers:
 Lab 3: 
   C - created the structure of the problem without the implementations
   H - accomplished all the required tasks
